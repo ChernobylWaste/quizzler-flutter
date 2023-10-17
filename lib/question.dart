@@ -7,3 +7,5 @@ class Question {
     questionAnswer = a;
   }
 }
+
+// Question newQuestion = Question('text', true);
