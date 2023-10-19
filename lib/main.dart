@@ -77,65 +77,75 @@ class _QuizPageState extends State<QuizPage> {
   //     q: 'You can lead a cow down stairs but not up stairs.', a: false);
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: <Widget>[
-        Expanded(
-          flex: 5,
-          child: Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Center(
-              child: Text(
-                quizBrain.getQuestionText(),
-                // questions[questionNumber],
-                // questions.first,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 25.0,
-                  color: Colors.white,
+    return Scaffold(
+      backgroundColor: Colors.grey.shade800,
+      appBar: AppBar(
+        title: const Text("Satria Winekas H / 1101204298"),
+      ),
+      body: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Expanded(
+              flex: 5,
+              child: Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Center(
+                  child: Text(
+                    quizBrain.getQuestionText(),
+                    // questions[questionNumber],
+                    // questions.first,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 25.0,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
             ),
-          ),
-        ),
-        Expanded(
-          child: Padding(
-              padding: EdgeInsets.all(15.0),
-              child: ElevatedButton(
-                onPressed: () {
-                  checkAnswer(true);
-                  // bool correctAnswer = answers[questionNumber];
+            Expanded(
+              child: Padding(
+                  padding: EdgeInsets.all(15.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      checkAnswer(true);
+                      // bool correctAnswer = answers[questionNumber];
 
-                  // correctAnswer = quizBrain
-                  //     .questionBank[questionNumber].questionAnswer = true;
-                },
-                child: Text(
-                  "True",
-                  style: TextStyle(color: Colors.white, fontSize: 20.0),
-                ),
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-              )),
+                      // correctAnswer = quizBrain
+                      //     .questionBank[questionNumber].questionAnswer = true;
+                    },
+                    child: Text(
+                      "True",
+                      style: TextStyle(color: Colors.white, fontSize: 20.0),
+                    ),
+                    style:
+                        ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                  )),
+            ),
+            Expanded(
+              child: Padding(
+                  padding: EdgeInsets.all(15.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      // bool correctAnswer = answers[questionNumber];
+                      checkAnswer(false);
+                    },
+                    child: Text(
+                      "False",
+                      style: TextStyle(color: Colors.white, fontSize: 20.0),
+                    ),
+                    style:
+                        ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                  )),
+            ),
+            Row(
+              children: scoreKeeper,
+            ),
+          ],
         ),
-        Expanded(
-          child: Padding(
-              padding: EdgeInsets.all(15.0),
-              child: ElevatedButton(
-                onPressed: () {
-                  // bool correctAnswer = answers[questionNumber];
-                  checkAnswer(false);
-                },
-                child: Text(
-                  "False",
-                  style: TextStyle(color: Colors.white, fontSize: 20.0),
-                ),
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-              )),
-        ),
-        Row(
-          children: scoreKeeper,
-        ),
-      ],
+      ),
     );
   }
 }
