@@ -4,11 +4,12 @@ class QuizBrain {
   int _questionNumber = 0;
 
   List<Question> _questionBank = [
-    Question(q: 'You can lead a cow down stairs but not up stairs.', a: false),
+    Question(q: 'Letak Gunung Puntang berada di Bandung', a: true),
     Question(
-        q: 'Approximately one quarter of human bones are in the feet.',
-        a: true),
-    Question(q: 'A slug\'s blood is green.', a: true),
+        q: 'Telkom University berada di Baleendah',
+        a: false),
+    Question(q: 'Kode Dosen MobApp adalah GLB', a: true),
+    Question(q: '1 + 1 = 3', a: false),
   ];
 
   void nextQuestion() {
